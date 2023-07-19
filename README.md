@@ -112,6 +112,7 @@ sudo ansible app -a "systemctl status nginx"
 Add port 3000 to SG
 
 ```
+---
 
 # Which host to perform the task
 - hosts: app
@@ -124,12 +125,12 @@ Add port 3000 to SG
 
 # add the instructions
   tasks:
-  - name: Installing node v12
+  - name: Node key
     apt_key:
       url: "https://deb.nodesource.com/gpgkey/nodesource.gpg.key"
       state: present
 
-  - name: Add NodeSource repository
+  - name: NodeSource repository
     apt_repository:
       repo: "deb https://deb.nodesource.com/node_12.x {{ ansible_distribution_release }} main"
       state: present
@@ -146,11 +147,6 @@ Add port 3000 to SG
       global: yes
       state: present
 
-  - name: Clone repository
-    git:
-      repo: https://github.com/HarryPaterson/tech241_sparta_app
-      dest: app
-
   - name: Install app dependencies
     command: npm install
     args:
@@ -159,5 +155,7 @@ Add port 3000 to SG
   - name: Start the Node.js app
     command: pm2 start app.js
     args:
-      chdir: "app/"
+      chdir: "app/app"
+
+
 ```
