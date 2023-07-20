@@ -191,18 +191,21 @@ Add port 3000 to SG
 #### Change bind ip to 0.0.0.0 to allow connections from VM, the restart and enable to make changes active
 
 ```
-`    apt:
-      name: sed
-      state: present
-
-  - name: Configure mongodb.conf bind ip
-    become: true
-    shell: sudo sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongodb.conf
+  - name: Modify mongod.conf to change bindIp
+    lineinfile:
+      path: /etc/mongodb.conf
+      regexp: '^bind_ip'
+      line: 'bind_ip = 0.0.0.0'
 
   - name: Restart Mongodb
     service:
       name: mongodb
       state: restarted
+
+  - name: starting and enabling Mongodb
+    service:
+      name: mongodb
+      state: started
       enabled: yes
 ```
 
