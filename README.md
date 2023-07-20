@@ -186,5 +186,30 @@ Add port 3000 to SG
 # check the status
 
 ```
-
 'sudo ansible-playbook mongodb-playbook.yml -vvv' Will give more info on the playbooks actions
+
+#### Change bind ip to 0.0.0.0 to allow connections from VM, the restart and enable to make changes active
+
+```
+`    apt:
+      name: sed
+      state: present
+
+  - name: Configure mongodb.conf bind ip
+    become: true
+    shell: sudo sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongodb.conf
+
+  - name: Restart Mongodb
+    service:
+      name: mongodb
+      state: restarted
+      enabled: yes
+```
+
+#### Within App VM, create enviromental variable DB Host to connect to Database. Restart app to make changes.
+
+```
+export DB_HOST="mongodb://34.251.39.154:27017/posts
+pm2 restart --pm2 restart app.js --update-env
+```
+
