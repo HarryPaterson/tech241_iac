@@ -186,3 +186,5 @@ Add port 3000 to SG
 # check the status
 
 ```
+
+'sudo ansible-playbook mongodb-playbook.yml -vvv' Will give more info on the playbooks actions
