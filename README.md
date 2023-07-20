@@ -4,7 +4,9 @@
 * Intro
 * Setting up Controller, App and Database
 * Ad-hoc Ansible commands
-* Writing Nginx Playbook
+* Nginx playbook
+* Node and pm2 playbook
+* Mongodb playbook
 
 ### Intro
 
@@ -156,6 +158,31 @@ Add port 3000 to SG
     command: pm2 start app.js
     args:
       chdir: "app/app"
+```
+### Mongodb playbook
+```
+---
+# create play book to install mongodb in db
 
+# who will be host
+- hosts: db
+
+# get logs
+  gather_facts: yes
+
+# admin access
+  become: true
+
+# provide instructions - task
+  tasks:
+
+# install mongodb
+
+  - name: Installing Mongodb
+    apt: pkg=mongodb state=present
+
+# ensure the db is running
+
+# check the status
 
 ```
