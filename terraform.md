@@ -5,6 +5,7 @@
 * Why use Terraform?
 * Who is using Terraform?
 * Terraform installation
+* Terraform workflow
   
 ### What is Terraform?
 Terraform is an open-source infrastructure as code (IaC) tool developed by HashiCorp. It allows users to define, manage, and provision infrastructure resources across multiple cloud providers and on-premises environments using declarative configuration files.
@@ -56,3 +57,12 @@ Terraform is an open-source infrastructure as code (IaC) tool developed by Hashi
 4. Verify Installation in CLI with terraform --version
 
 ![](https://i.imgur.com/jPvbqBD.png)
+
+### Terraform workflow
+![](https://i.imgur.com/jZbg5wR.png)
+
+We will set our access and secret keys as environment variables instead of providing them in the configuration files to practice Encapsulation and protect our security.
+Terraform will be used by creating a configuration file 'main.tf' specifying AWS as provider and region and giving the necessary details of our EC2 instances such as Key Pair and Security group.
+We will use terraform init to initialise the directory where the config file is kept, terraform plan to check it is a working file and outline it's actions and terraform apply to launch the instances.
+Terraform is used for the automation of launching our instances whereas Ansible is used for management and automating the configuration of those instances.
+
