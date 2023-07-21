@@ -54,4 +54,5 @@ Terraform is an open-source infrastructure as code (IaC) tool developed by Hashi
 ![](https://i.imgur.com/HKEBXe7.png)
 ![](https://i.imgur.com/hg5qgiD.png)
 4. Verify Installation in CLI with terraform --version
+
 ![](https://i.imgur.com/jPvbqBD.png)
