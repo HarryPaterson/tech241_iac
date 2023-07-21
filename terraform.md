@@ -5,9 +5,7 @@
 * Why use Terraform?
 * Who is using Terraform?
 * Terraform installation
-
-# Terraform: Basic Notes
-
+* 
 ### What is Terraform?
 Terraform is an open-source infrastructure as code (IaC) tool developed by HashiCorp. It allows users to define, manage, and provision infrastructure resources across multiple cloud providers and on-premises environments using declarative configuration files.
 
