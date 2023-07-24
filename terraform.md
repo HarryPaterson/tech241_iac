@@ -68,6 +68,7 @@ Terraform is used for the automation of launching our instances whereas Ansible 
 
 ### Terraform files
 
+#### EC3 Instance
 1. Create a new directory with a file 'main.tf'
 2. Run 'terraform init' to initialise directory
 3. Enter the configuration into main.tf
@@ -102,3 +103,6 @@ resource "aws_instance" "app_instance" {
 4. Use 'terraform plan' to see what it will build
 5. Use 'terraform apply' to build the instance, confirm with yes
 6. Use 'terraform destroy' to remove instance
+
+#### VPC
+![](https://i.imgur.com/nPkOh0J.png)
