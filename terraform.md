@@ -66,3 +66,39 @@ Terraform will be used by creating a configuration file 'main.tf' specifying AWS
 We will use terraform init to initialise the directory where the config file is kept, terraform plan to check it is a working file and outline it's actions and terraform apply to launch the instances.
 Terraform is used for the automation of launching our instances whereas Ansible is used for management and automating the configuration of those instances.
 
+### Terraform files
+
+1. Create a new directory with a file 'main.tf'
+2. Run 'terraform init' to initialise directory
+3. Enter the configuration into main.tf
+```
+# launch an ec2 instance
+# which cloud - aws
+# terraform downloads required dependencies
+# terraform init
+
+# provider name
+provider "aws" {
+  region = "eu-west-1"
+}
+
+
+# is public ip required
+# what would you like to name it
+# launch ec2 instance in ireland
+resource "aws_instance" "app_instance" {
+  # ami
+  ami                    = "ami-0a7493ba2bc35c1e9"
+  # type
+  instance_type          = "t2.micro"
+  # public ip acquired
+  associate_public_ip_address = true
+  # name
+  tags = {
+    Name = "tech241-henry-terraform-app"
+  }
+}
+```
+4. Use 'terraform plan' to see what it will build
+5. Use 'terraform apply' to build the instance, confirm with yes
+6. Use 'terraform destroy' to remove instance
